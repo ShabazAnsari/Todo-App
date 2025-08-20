@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div id="authSection">
+        <div class="app-header">
+          <div class="logo-container">
+            <div class="logo">
+              <i class="fas fa-tasks"></i>
+            </div>
+          </div>
+          <h1 class="app-title">TodoTasks</h1>
+          <p class="app-subtitle">Your Minimal Productivity Companion</p>
+        </div>
+
+        <div class="auth-container" id="authContainer">
+          <div id="loginForm">
+            <h2 style="text-align: center">Sign In</h2>
+            <div class="auth-form">
+              <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  class="auth-input"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  class="auth-input"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <button class="auth-btn" id="loginBtn">Sign In</button>
+            </div>
+            <div class="auth-switch">
+              Don't have an account?
+              <span class="auth-link" id="showSignup">Sign Up</span>
+            </div>
+          </div>
+
+          <div id="signupForm" style="display: none">
+            <h2 style="text-align: center">Sign Up</h2>
+            <div class="auth-form">
+              <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input
+                  type="text"
+                  id="signupName"
+                  class="auth-input"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input
+                  type="email"
+                  id="signupEmail"
+                  class="auth-input"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input
+                  type="password"
+                  id="signupPassword"
+                  class="auth-input"
+                  placeholder="Create a password"
+                />
+              </div>
+              <div class="form-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input
+                  type="password"
+                  id="signupConfirmPassword"
+                  class="auth-input"
+                  placeholder="Confirm your password"
+                />
+              </div>
+              <button class="auth-btn" id="signupBtn">Create Account</button>
+            </div>
+            <div class="auth-switch">
+              Already have an account?
+              <span class="auth-link" id="showLogin">Sign In</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="todoAppSection" style="display: none">
+        <div class="auth-navigation">
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+
+        <div class="app-header">
+          <div class="logo-container">
+            <div class="logo">
+              <i class="fas fa-tasks"></i>
+            </div>
+          </div>
+          <h1 class="app-title">TodoTasks</h1>
+          <p class="app-subtitle">Your Minimal Productivity Companion</p>
+        </div>
+
+        <div class="app-content">
+          <div class="add-task-form">
+            <input
+              type="text"
+              class="task-input"
+              placeholder="Add a new task..."
+              id="newTaskInput"
+            />
+            <select class="priority-select" id="prioritySelect">
+              <option value="normal">Normal</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+            <button class="add-btn" id="addTaskBtn">
+              <i class="fas fa-plus"></i> Add
+            </button>
+          </div>
+
+          <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">
+              All Tasks
+            </button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">
+              Completed
+            </button>
+          </div>
+
+          <ul class="task-list" id="taskList">
+            <!-- Example tasks will be added here -->
+            <li class="task-item high" style="--order: 1">
+              <span class="priority-label">High</span>
+              <div class="task-checkbox"></div>
+              <div class="task-text">Complete project presentation</div>
+              <div class="task-actions">
+                <button class="task-btn edit">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="task-btn delete">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </li>
+            <li class="task-item normal" style="--order: 2">
+              <div class="task-checkbox completed"></div>
+              <div class="task-text">Buy groceries</div>
+              <div class="task-actions">
+                <button class="task-btn edit">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="task-btn delete">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </li>
+            <li class="task-item low" style="--order: 3">
+              <span class="priority-label">Low</span>
+              <div class="task-checkbox"></div>
+              <div class="task-text">Read a book</div>
+              <div class="task-actions">
+                <button class="task-btn edit">
+                  <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="task-btn delete">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+
+          <div class="stats-bar">
+            <div class="stat-item">
+              <div class="stat-value" id="totalTasks">3</div>
+              <div class="stat-label">Total Tasks</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="completedTasks">1</div>
+              <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="activeTasks">2</div>
+              <div class="stat-label">Active</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
