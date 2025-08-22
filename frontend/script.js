@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const API_URL = "http://localhost:3000/api"; // Change if backend hosted elsewhere
+  const API_URL = "https://todo-app-wa7a.onrender.com/api"; 
 
   // Auth elements
   const authSection = document.getElementById("authSection");
